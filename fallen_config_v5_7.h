@@ -116,22 +116,6 @@ Preset presets[] = {
   
   AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(),
   "Cyan JFO"},
-   
-  //Currently not updated to 5.7, using styles from 4.x
-  { "FOGreen", "tracks/JFOepic.wav",
-    StylePtr<Layers<
-  AudioFlicker<Gradient<Gradient<Rgb<125,255,125>,GreenYellow,GreenYellow>,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow>,Green>,
-  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
-  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<AudioFlicker<Rgb<125,255,125>,GreenYellow>,Strobe<Blue,LemonChiffon,50,1>,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
-  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
-  ResponsiveStabL<Gradient<AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,Gradient<AudioFlicker<Green,GreenYellow>,BrownNoiseFlicker<White,Strobe<Blue,LemonChiffon,50,1>,300>,White>>,TrWipeIn<700>,TrWipe<700>>,
-  ResponsiveBlastL<BrownNoiseFlicker<Red,Magenta,300>,Int<150>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
-  ResponsiveClashL<BrownNoiseFlicker<White,Strobe<Blue,LemonChiffon,50,1>,50>,TrInstant,TrFade<350>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Int<16384>>,
-  ResponsiveDragL<Gradient<AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,Gradient<AudioFlicker<Green,GreenYellow>,BrownNoiseFlicker<White,Strobe<Blue,LemonChiffon,50,1>,300>,White>>,TrWipeIn<400>,TrFade<400>>,
-  ResponsiveMeltL<Mix<TwistAngle<>,Red,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
-  InOutTrL<TrWipe<200>,TrWipeIn<300>>,
-  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>>(),
-  "Green JFO"},
   
   { "2ndSis, "tracks/JFO12.wav",
 	StylePtr<Layers<
