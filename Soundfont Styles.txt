@@ -1,0 +1,224 @@
+Universal:
+Smart Power Save: Auto Dim 50%
+
+Vader Wipe in - 650 
+Vader retract - 500
+AudioFlicker base - Red and Rgb<160,0,0> //Originally 160
+=Vader=
+StylePtr<Layers<
+  AudioFlicker<RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<246,68,85>>>,
+  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
+  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<10000>,Int<30000>>,Int<10000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  ResponsiveStabL<Orange>,
+  ResponsiveBlastL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<White,TrInstant,TrFade<400>>,
+  ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,
+  ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
+  InOutTrL<TrWipe<650>,TrWipeIn<500>>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>>()
+
+
+If it has X in the name, it takes a function (e.g. int<x>)
+
+=Yoda=
+300 - ignition
+500 - retract
+AudioFlicker base - Green and Rgb<0,192,0> //Originally 176
+StylePtr<Layers<
+  AudioFlicker<RotateColorsX<Variation,Green>,RotateColorsX<Variation,Rgb<0,192,0>>>,
+  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
+  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Red,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<10000>,Int<30000>>,Int<10000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  ResponsiveStabL<Red>,
+  ResponsiveBlastL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<White,TrInstant,TrFade<400>>,
+  ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,
+  ResponsiveMeltL<Mix<TwistAngle<>,Red,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
+  InOutTrL<TrWipe<300>,TrWipeIn<500>>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>>()
+
+
+
+=TROS Graflex=
+300 - ignition
+500 - retract
+AudioFlicker base - Green and Rgb<0,0,136> //Originally 128
+StylePtr<Layers<
+  AudioFlicker<RotateColorsX<Variation,Blue>,RotateColorsX<Variation,DodgerBlue>>,
+  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
+  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Red,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<10000>,Int<30000>>,Int<10000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  ResponsiveStabL<Red>,
+  ResponsiveBlastL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<White,TrInstant,TrFade<400>>,
+  ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,
+  ResponsiveMeltL<Mix<TwistAngle<>,Red,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
+  InOutTrL<TrWipe<300>,TrWipeIn<500>>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>>()
+
+
+
+=Kylo=
+150 - ignition
+500 retract
+Lockup - Low
+Clash - Mid
+Responsive Swing Effect: Static Color Swing
+StylePtr<Layers<
+  StyleFire<BrownNoiseFlicker<RotateColorsX<Variation,Red>,RandomPerLEDFlicker<RotateColorsX<Variation,Rgb<25,0,0>>,RotateColorsX<Variation,Rgb<60,0,0>>>,300>,RotateColorsX<Variation,Rgb<80,0,0>>,0,6,FireConfig<10,1000,2>,FireConfig<10,1000,2>,FireConfig<10,1000,2>,FireConfig<10,1000,2>>,
+  AlphaL<RotateColorsX<Variation,Red>,SwingSpeed<400>>,
+  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
+  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Blue,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  ResponsiveStabL<Orange>,
+  ResponsiveBlastL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<White,TrInstant,TrFade<400>>,
+  ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,
+  ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
+  InOutTrL<TrWipe<150>,TrWipeIn<500>>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>>()
+  
+  
+  
+=Jar Jar=
+Layers<
+  AudioFlicker<RotateColorsX<Variation,Rgb<0,255,204>>,RotateColorsX<Variation,Rgb<0,128,102>>>,
+  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
+  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<White,Red,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<10000>,Int<30000>>,Int<10000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  AlphaL<TransitionEffect<White,Rgb<128,0,0>,TrInstant,TrConcat<TrFade<1500>,Red,TrFade<2000>,Orange,TrFade<2500>>,EFFECT_IGNITION>,Bump<Int<0>,Int<6000>>>,
+  ResponsiveStabL<Red>,
+  ResponsiveBlastL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<White,TrInstant,TrFade<400>>,
+  ResponsiveDragL<BrownNoiseFlickerL<White,Int<300>>,TrWipeIn<400>,TrFade<400>>,
+  ResponsiveMeltL<Mix<TwistAngle<>,Red,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
+  InOutTrL<TrWipe<300>,TrWipeIn<500>>,
+  TransitionEffectL<TrConcat<TrInstant,AlphaL<White,Bump<Int<0>,Int<10000>>>,TrFade<3000>,AlphaL<Orange,Bump<Int<0>,Int<8000>>>,TrFade<3000>,AlphaL<Red,Bump<Int<0>,Int<6000>>>,TrFade<2000>>,EFFECT_RETRACTION>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>
+  
+  =Kimetsu no Yaiba=
+ Real Flame: StylePtr<Layers<Mix<SmoothStep<Scale<BladeAngle<0,20000>,Int<10000>,Int<38000>>,Int<20000>>,TransitionEffect<Mix<Scale<BladeAngle<>,Int<32768>,Int<0>>,StyleFire<Gradient<RotateColorsX<Variation,Orange>,RotateColorsX<Variation,OrangeRed>,RotateColorsX<Variation,Red>>,RotateColorsX<Variation,Rgb<60,0,0>>,0,4,FireConfig<0,1500,5>,FireConfig<0,1500,5>,FireConfig<0,1500,5>,FireConfig<0,0,0>>,StyleFire<Gradient<RotateColorsX<Variation,DarkOrange>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Red>>,Black,0,2,FireConfig<0,1600,30>,FireConfig<0,1600,30>,FireConfig<0,1600,30>,FireConfig<0,0,0>>>,HumpFlickerL<White,40>,TrInstant,TrFade<800>,EFFECT_LOCKUP_END>,Black>,LockupTrL<AlphaL<Strobe<White,BrownNoiseFlicker<White,Red,300>,50,1>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<4000>>,Int<10000>>>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,SaberBase::LOCKUP_NORMAL>,LockupTrL<AlphaL<HumpFlickerL<White,50>,Bump<Int<0>,Int<8000>>>,TrInstant,TrFade<400>,SaberBase::LOCKUP_DRAG>,TransitionEffectL<TrConcat<TrInstant,AlphaL<White,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<4000>>,Int<10000>>>,TrFade<200>>,EFFECT_CLASH>,TransitionEffectL<TrConcat<TrInstant,AlphaL<White,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<8000>,Int<28000>>,Int<8000>>,Int<10000>>>,TrFade<200>>,EFFECT_BLAST>,Mix<IsLessThan<BladeAngle<>,Int<12000>>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,AlphaL<White,Int<0>>>,ResponsiveMeltL<Mix<TwistAngle<>,OrangeRed,Orange>,TrWipeIn<600>,TrSmoothFade<600>>>>()
+ 
+ Unstable:
+ 
+ =Ahsoka=
+ Ahsoka
+150 - ignition
+500 retract
+
+Colors: Rgb<75,150,200> and Rgb<37,75,100> in RandomFlicker
+
+StylePtr<Layers<RandomFlicker<RotateColorsX<Variation,Rgb<75,150,200>>,RotateColorsX<Variation,Rgb<37,75,100>>>,LockupTrL<Layers<AlphaL<AudioFlickerL<Rgb<255,150,0>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,AlphaL<Moccasin,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Int<10000>>>>,TrConcat<TrInstant,TransitionEffect<Rgb<255,225,0>,NavajoWhite,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,TrConcat<TrInstant,AlphaL<White,Int<0>>,TrWaveX<TransitionEffect<NavajoWhite,Rgb<255,225,0>,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,Int<300>,Int<100>,Int<400>,Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>>>,SaberBase::LOCKUP_NORMAL>,ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,ResponsiveStabL<Red,TrWipeIn<600>,TrWipe<600>>,ResponsiveBlastWaveL<TransitionEffect<White,Yellow,TrInstant,TrFade<100>,EFFECT_BLAST>,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>,Int<400>>,ResponsiveBlastL<TransitionEffect<Rgb<255,150,0>,Moccasin,TrInstant,TrFade<100>,EFFECT_CLASH>,Int<400>,Int<100>,Int<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,EFFECT_CLASH>,LockupTrL<AlphaL<BrownNoiseFlickerL<White,Int<300>>,SmoothStep<Int<30000>,Int<5000>>>,TrWipeIn<400>,TrFade<300>,SaberBase::LOCKUP_DRAG>,LockupTrL<AlphaL<Mix<TwistAngle<>,Red,Orange>,SmoothStep<Int<28000>,Int<5000>>>,TrWipeIn<600>,TrFade<300>,SaberBase::LOCKUP_MELT>,InOutTrL<TrWipe<330>,TrWipeIn<500>,Black>>>()},
+
+=Second Sister=
+200 - ignition
+300 - retract
+Lockup: Original Trilogy with custom AudioFlicker color values (Refer to Excel sheet; keep yellowchiffon)
+Blast: Original Trilogy
+Clash: Sequel Trilogy with strobe color values taken from Kyber style for effect color
+
+	StylePtr<Layers<
+  Stripes<10000,-1700,RotateColorsX<Variation,Rgb<80,0,0>>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<128,0,0>>,RotateColorsX<Variation,Rgb<50,0,0>>,RotateColorsX<Variation,Red>>,
+  
+  LockupTrL<Layers<
+    AlphaL<AudioFlickerL<AudioFlicker<Rgb<255,75,75>,Tomato>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
+    AlphaL<LemonChiffon,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Int<10000>>>>,TrConcat<TrInstant,TransitionEffect<AudioFlicker<Rgb<255,56,47>,Rgb<255,23,9>>,LemonChiffon,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,TrConcat<TrInstant,TransitionEffect<LemonChiffon,AudioFlicker<Rgb<255,56,47>,Rgb<255,23,9>>,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,SaberBase::LOCKUP_NORMAL>,
+  
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  
+  ResponsiveStabL<Orange>,
+  
+  ResponsiveBlastL<TransitionEffect<Rgb<255,240,80>,LemonChiffon,TrInstant,TrFade<50>,EFFECT_BLAST>,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  
+  ResponsiveClashL<TransitionEffect<Azure,Strobe<Blue,LemonChiffon,50,1>,TrInstant,TrFade<100>,EFFECT_CLASH>,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Int<20000>>,
+  
+  LockupTrL<AlphaL<BrownNoiseFlickerL<White,Int<300>>,SmoothStep<Int<30000>,Int<5000>>>,TrWipeIn<400>,TrFade<300>,SaberBase::LOCKUP_DRAG>,
+  
+  LockupTrL<AlphaL<Mix<TwistAngle<>,Rgb<255,200,0>,DarkOrange>,SmoothStep<Int<28000>,Int<5000>>>,TrWipeIn<600>,TrFade<300>,SaberBase::LOCKUP_MELT>,
+  
+  InOutTrL<TrWipe<200>,TrWipeIn<300>>,
+  
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>()
+
+
+=Jedi Fallen Order Blue=
+200 - ignition (spark tip extension)
+300 - retract
+Lockup: Original Trilogy with custom AudioFlicker color values (Refer to Excel sheet; keep yellowchiffon)
+Blast: Original Trilogy
+Clash: Sequel Trilogy with strobe color values taken from Kyber style for effect color
+ 
+ 
+	StylePtr<Layers<
+  Stripes<10000,-1700,RotateColorsX<Variation,Rgb<0,0,80>>,RotateColorsX<Variation,Blue>,RotateColorsX<Variation,Rgb<0,0,128>>,RotateColorsX<Variation,Rgb<0,0,50>>,RotateColorsX<Variation,Blue>>,
+  
+  LockupTrL<Layers<
+    AlphaL<AudioFlicker<Rgb<80,240,255>,DodgerBlue>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
+    AlphaL<LemonChiffon,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Int<10000>>>>,TrConcat<TrInstant,TransitionEffect<AudioFlicker<Rgb<50,180,255>,Rgb<1,54,255>>,LemonChiffon,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,TrConcat<TrInstant,TransitionEffect<LemonChiffon,AudioFlicker<Rgb<50,180,255>,Rgb<1,54,255>>,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,SaberBase::LOCKUP_NORMAL>,
+  
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  
+  ResponsiveStabL<Gradient<AudioFlicker<Blue,Rgb<0,0,150>>,AudioFlicker<Blue,Rgb<0,0,150>>,AudioFlicker<Blue,Rgb<0,0,150>>,Gradient<AudioFlicker<Blue,Rgb<0,0,150>>,BrownNoiseFlicker<White,Strobe<Red,LemonChiffon,50,1>,300>,White>>,TrWipeIn<600>,TrWipe<1400>>,
+  
+  ResponsiveBlastL<TransitionEffect<Rgb<255,240,80>,LemonChiffon,TrInstant,TrFade<50>,EFFECT_BLAST>,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  
+  ResponsiveClashL<TransitionEffect<Ivory,Strobe<Red,LemonChiffon,50,1>,TrInstant,TrFade<100>,EFFECT_CLASH>,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Int<20000>>,
+  
+  LockupTrL<AlphaL<BrownNoiseFlickerL<White,Int<300>>,SmoothStep<Int<30000>,Int<5000>>>,TrWipeIn<400>,TrFade<300>,SaberBase::LOCKUP_DRAG>,
+  
+  LockupTrL<AlphaL<Mix<TwistAngle<>,Red,Orange>,SmoothStep<Int<28000>,Int<5000>>>,TrWipeIn<600>,TrFade<300>,SaberBase::LOCKUP_MELT>,
+  
+  InOutTrL<TrWipeSparkTip<White,200>,TrWipeIn<300>>,
+  
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>()
+  
+  
+==Jedi Fallen Order Cyan==
+200 - ignition (spark tip extension)
+300 - retract
+Base blade color - Custom color values adapted from DeepSkyBlue (Refer to Excel sheet)
+Lockup: Original Trilogy with custom AudioFlicker color values (Refer to Excel sheet; keep yellowchiffon)
+Blast: Original Trilogy
+Clash: Sequel Trilogy with strobe color values taken from Kyber style (Azure changed to Ivory for base)
+
+Layers<
+  Stripes<10000,-1700,RotateColorsX<Variation,Rgb<0,47,80>>,RotateColorsX<Variation,Cyan>,RotateColorsX<Variation,Rgb<0,76,128>>,RotateColorsX<Variation,Rgb<0,30,50>>,RotateColorsX<Variation,Cyan>>,
+  LockupTrL<Layers<
+    AlphaL<AudioFlickerL<AudioFlicker<LightCyan,Cyan>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
+    AlphaL<LemonChiffon,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Int<10000>>>>,TrConcat<TrInstant,TransitionEffect<AudioFlicker<Rgb<119,191,255>,Rgb<50,180,255>>,LemonChiffon,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,TrConcat<TrInstant,TransitionEffect<LemonChiffon,AudioFlicker<Rgb<119,191,255>,Rgb<50,180,255>>,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,SaberBase::LOCKUP_NORMAL>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  ResponsiveStabL<Red>,
+  ResponsiveBlastL<TransitionEffect<Rgb<255,240,80>,LemonChiffon,TrInstant,TrFade<50>,EFFECT_BLAST>,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<TransitionEffect<Azure,White,TrInstant,TrFade<100>,EFFECT_CLASH>,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Int<20000>>,
+  LockupTrL<AlphaL<BrownNoiseFlickerL<White,Int<300>>,SmoothStep<Int<30000>,Int<5000>>>,TrWipeIn<400>,TrFade<300>,SaberBase::LOCKUP_DRAG>,
+  LockupTrL<AlphaL<Mix<TwistAngle<>,Red,Orange>,SmoothStep<Int<28000>,Int<5000>>>,TrWipeIn<600>,TrFade<300>,SaberBase::LOCKUP_MELT>,
+  InOutTrL<TrWipeSparkTip<White,200>,TrWipeIn<300>>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>
+  
+  
+ ==Newtype Deep Pink==
+Preon: Overload (Blade Color) - Changed to Deep Pink
+500 - ignition (spark tip extension), Spark Tip Extension in Hot Pink
+500 - retract
+Base blade color - Custom color values adapted from DeepSkyBlue (Refer to Excel sheet)
+Base Flare - Custom color (Refer to Excel sheet) (Layer 3)
+Lockup: Animated Series with AudioFlicker<Pink,HotPink> base with BrownNoiseFlicker<White,Green,300> and effect replacing Moccasin
+Blast: White
+Clash: Animated Series with AudioFlicker<Pink,HotPink> base with BrownNoiseFlicker<White,Green,300> and effect replacing Moccasin
+
+Layers<
+  Stripes<6000,-3000,RotateColorsX<Variation,Rgb<128,0,22>>,RotateColorsX<Variation,DeepPink>,RotateColorsX<Variation,Rgb<60,0,11>>>,
+  LockupTrL<Layers<
+    AlphaL<AudioFlickerL<AudioFlicker<Pink,HotPink>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
+    AlphaL<BrownNoiseFlicker<White,Green,300>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Int<10000>>>>,TrConcat<TrInstant,TransitionEffect<AudioFlickerL<AudioFlicker<Pink,HotPink>>,BrownNoiseFlicker<White,Green,300>,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,TrConcat<TrInstant,TransitionEffect<BrownNoiseFlicker<White,Green,300>,AudioFlickerL<AudioFlicker<Pink,HotPink>>,TrInstant,TrFade<200>,EFFECT_LOCKUP_BEGIN>,TrFade<400>>,SaberBase::LOCKUP_NORMAL>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  AlphaL<RotateColorsX<Variation,Rgb<255,90,100>>,Bump<Int<0>,Int<8000>>>,
+  ResponsiveStabL<Orange>,
+  ResponsiveBlastL<White,Int<400>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<TransitionEffect<AudioFlicker<Pink,HotPink>,BrownNoiseFlicker<White,Green,300>,TrInstant,TrFade<100>,EFFECT_CLASH>,TrInstant,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Int<20000>>,
+  LockupTrL<AlphaL<BrownNoiseFlickerL<White,Int<300>>,SmoothStep<Int<30000>,Int<5000>>>,TrWipeIn<400>,TrFade<300>,SaberBase::LOCKUP_DRAG>,
+  LockupTrL<AlphaL<Mix<TwistAngle<>,Rgb<255,200,0>,DarkOrange>,SmoothStep<Int<28000>,Int<5000>>>,TrWipeIn<600>,TrFade<300>,SaberBase::LOCKUP_MELT>,
+  InOutTrL<TrWipeSparkTip<HotPink,500>,TrWipeIn<500>>,
+  TransitionEffectL<TrConcat<TrFade<2000>,AlphaL<HumpFlickerL<RotateColorsX<Variation,DeepPink>,10>,Bump<Int<0>,Int<4000>>>,TrFade<2950>,AlphaL<HumpFlickerL<RotateColorsX<Variation,DeepPink>,15>,Bump<Int<0>,Int<5000>>>,TrFade<3000>,AlphaL<HumpFlickerL<RotateColorsX<Variation,DeepPink>,20>,Bump<Int<0>,Int<6000>>>,TrBoing<1000,3>>,EFFECT_PREON>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>
