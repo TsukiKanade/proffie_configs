@@ -2,9 +2,9 @@
 #include "proffieboard_v2_config.h"
 #define NUM_BLADES 1
 #define NUM_BUTTONS 2
-#define VOLUME 1500                                   //750 volume with no clashes at 2.3, 1200 also sounds nice, [default: 1500]
-const unsigned int maxLedsPerStrip = 180;    //Could be upped by 25% only for ProffieOS 5.x [default: 144]
-#define CLASH_THRESHOLD_G 2.5               //Originally 1.9 from Solo Sabers. 2.4 seems okay (2.4 clashes on Vader blasts, 2.5 has issues detecting clash) [default: 1.9 Solo Sabers]
+#define VOLUME 1500                        //750 volume with no clashes at 2.3, 1200 also sounds nice, [default: 1500]
+const unsigned int maxLedsPerStrip = 180;  //Could be upped by 25% only for ProffieOS 5.x [default: 144]
+#define CLASH_THRESHOLD_G 2.5              //Originally 1.9 from Solo Sabers. 2.4 seems okay (2.4 clashes on Vader blasts, 2.5 has issues detecting clash) [default: 1.9 Solo Sabers]
 
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
@@ -12,17 +12,17 @@ const unsigned int maxLedsPerStrip = 180;    //Could be upped by 25% only for Pr
 #define ENABLE_SD
 
 //Custom defines
-#define COLOR_CHANGE_DIRECT                 //Enable "Click to Change" for Dual Phase and other styles designed for it.
-#define DISABLE_DIAGNOSTIC_COMMANDS //Reduces memory by disabling diagnostic commands
-//#define DISABLE_COLOR_CHANGE            //Disables color change [spectrum], for memory saving
-#define MOTION_TIMEOUT 60 * 15 * 1000    //This extends the motion timeout to 15 minutes to allow gesture ignition to remain active [Increase/decrease the "15" value as needed, default: 15]
+#define COLOR_CHANGE_DIRECT                //Enable "Click to Change" for Dual Phase and other styles designed for it.
+#define DISABLE_DIAGNOSTIC_COMMANDS        //Reduces memory by disabling diagnostic commands
+//#define DISABLE_COLOR_CHANGE             //Disables color change [spectrum], for memory saving
+#define MOTION_TIMEOUT 60 * 15 * 1000      //This extends the motion timeout to 15 minutes to allow gesture ignition to remain active [Increase/decrease the "15" value as needed, default: 15]
 
-#define FETT263_SWING_ON                        //To enable Swing On Ignition control (automatically enters Battle Mode, uses Fast On)
-#define FETT263_SWING_ON_SPEED 800      //Dictates speed for Swing On [default: 250, recommended: 250-500]
-#define FETT263_THRUST_ON                      //To enable Thrust On Ignition control (automatically enters Battle Mode, uses Fast On)
-#define FETT263_TWIST_OFF                       //To enable Twist Off Retraction control
+#define FETT263_SWING_ON                   //To enable Swing On Ignition control (automatically enters Battle Mode, uses Fast On)
+#define FETT263_SWING_ON_SPEED 800         //Dictates speed for Swing On [default: 250, recommended: 250-500]
+#define FETT263_THRUST_ON                  //To enable Thrust On Ignition control (automatically enters Battle Mode, uses Fast On)
+#define FETT263_TWIST_OFF                  //To enable Twist Off Retraction control
 
-#define FETT263_MULTI_PHASE                   //This will enable a preset change while ON to create a "Multi-Phase" saber effect
+#define FETT263_MULTI_PHASE                //This will enable a preset change while ON to create a "Multi-Phase" saber effect
 
 #endif
 
@@ -117,6 +117,7 @@ Preset presets[] = {
   AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(),
   "Cyan JFO"},
    
+  //Currently not updated to 5.7, using styles from 4.x
   { "FOGreen", "tracks/JFOepic.wav",
     StylePtr<Layers<
   AudioFlicker<Gradient<Gradient<Rgb<125,255,125>,GreenYellow,GreenYellow>,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow>,Green>,
