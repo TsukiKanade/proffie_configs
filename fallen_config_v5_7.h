@@ -2,10 +2,9 @@
 #include "proffieboard_v2_config.h"
 #define NUM_BLADES 1
 #define NUM_BUTTONS 2
-#define VOLUME 1500                        //750 volume with no clashes at 2.3, 1200 also sounds nice, [default: 1500]
-const unsigned int maxLedsPerStrip = 180;  //Could be upped by 25% only for ProffieOS 5.x [default: 144]
-#define CLASH_THRESHOLD_G 2.5              //Originally 1.9 from Solo Sabers. 2.4 seems okay (2.4 clashes on Vader blasts, 2.5 has issues detecting clash) [default: 1.9 Solo Sabers]
-
+#define VOLUME 1250                        //750 volume with no clashes at 2.3, 1200 also sounds nice, [default: 1500]
+const unsigned int maxLedsPerStrip = 144;
+#define CLASH_THRESHOLD_G 1.9              //Originally 1.9 from Solo Sabers. 2.4 seems okay (2.4 clashes on Vader blasts, 2.5 has issues detecting clash) [default: 1.9 Solo Sabers]
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
 #define ENABLE_WS2811
@@ -13,15 +12,16 @@ const unsigned int maxLedsPerStrip = 180;  //Could be upped by 25% only for Prof
 
 //Custom defines
 #define COLOR_CHANGE_DIRECT                //Enable "Click to Change" for Dual Phase and other styles designed for it.
-#define DISABLE_DIAGNOSTIC_COMMANDS        //Reduces memory by disabling diagnostic commands
 //#define DISABLE_COLOR_CHANGE             //Disables color change [spectrum], for memory saving
+#define DISABLE_DIAGNOSTIC_COMMANDS        //Reduces memory by disabling diagnostic commands
+#define EXTRA_COLOR_BUFFER_SPACE 29        //A reasonable value might be something like 20%~25% of maxLedsPerStrip, essentially sends data faster down the strip.
 #define MOTION_TIMEOUT 60 * 15 * 1000      //This extends the motion timeout to 15 minutes to allow gesture ignition to remain active [Increase/decrease the "15" value as needed, default: 15]
+#define SAVE_PRESET                        //Start at the last selected Preset when you turn the saber on
 
 #define FETT263_SWING_ON                   //To enable Swing On Ignition control (automatically enters Battle Mode, uses Fast On)
 #define FETT263_SWING_ON_SPEED 800         //Dictates speed for Swing On [default: 250, recommended: 250-500]
 #define FETT263_THRUST_ON                  //To enable Thrust On Ignition control (automatically enters Battle Mode, uses Fast On)
 #define FETT263_TWIST_OFF                  //To enable Twist Off Retraction control
-
 #define FETT263_MULTI_PHASE                //This will enable a preset change while ON to create a "Multi-Phase" saber effect
 
 #endif
@@ -116,8 +116,23 @@ Preset presets[] = {
   
   AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(),
   "Cyan JFO"},
+   
+  { "FOGreen", "tracks/JFOepic.wav",
+    StylePtr<Layers<
+  AudioFlicker<Gradient<Gradient<Rgb<125,255,125>,GreenYellow,GreenYellow>,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow>,Green>,
+  TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
+  ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<AudioFlicker<Rgb<125,255,125>,GreenYellow>,Strobe<Blue,LemonChiffon,50,1>,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
+  ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
+  ResponsiveStabL<Gradient<AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,Gradient<AudioFlicker<Green,GreenYellow>,BrownNoiseFlicker<White,Strobe<Blue,LemonChiffon,50,1>,300>,White>>,TrWipeIn<700>,TrWipe<700>>,
+  ResponsiveBlastL<BrownNoiseFlicker<Red,Magenta,300>,Int<150>,Scale<SwingSpeed<200>,Int<100>,Int<400>>>,
+  ResponsiveClashL<BrownNoiseFlicker<White,Strobe<Blue,LemonChiffon,50,1>,50>,TrInstant,TrFade<350>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Int<16384>>,
+  ResponsiveDragL<Gradient<AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,AudioFlicker<Green,GreenYellow>,Gradient<AudioFlicker<Green,GreenYellow>,BrownNoiseFlicker<White,Strobe<Blue,LemonChiffon,50,1>,300>,White>>,TrWipeIn<400>,TrFade<400>>,
+  ResponsiveMeltL<Mix<TwistAngle<>,Red,Orange>,TrWipeIn<600>,TrSmoothFade<600>>,
+  InOutTrL<TrWipe<200>,TrWipeIn<300>>,
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<10000>>,Int<0>,Scale<BatteryLevel,Int<16384>,Int<7500>>>>>>(),
+  "Green JFO"},
   
-  { "2ndSis, "tracks/JFO12.wav",
+  { "2ndSis", "tracks/JFO12.wav",
 	StylePtr<Layers<
   Stripes<10000,-1700,RotateColorsX<Variation,Rgb<80,0,0>>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<128,0,0>>,RotateColorsX<Variation,Rgb<50,0,0>>,RotateColorsX<Variation,Red>>,
   
@@ -168,7 +183,7 @@ Preset presets[] = {
   AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(),
   "Yoda"},
   
-  { "Ahsoka", ""
+  { "Ahsoka", "",
 	StylePtr<Layers<
   AudioFlicker<RotateColorsX<Variation,Rgb<75,150,200>>,RotateColorsX<Variation,Rgb<37,75,100>>>,
   
@@ -191,7 +206,7 @@ Preset presets[] = {
   InOutTrL<TrWipe<150>,TrWipeIn<500>>,
   
   AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>().
-  "Ahsoka"}  
+  "Ahsoka"},  
    
 //===Sequel Era===      
   { "9Graflex", "tracks/track3g.wav",
@@ -220,8 +235,10 @@ Preset presets[] = {
   "Sequel Graflex"},
    
   { "KyloV2", "tracks/track3k.wav",
-    StylePtr<Layers<
+    StylePtrLayers<
   StripesX<Int<1500>,Scale<SlowNoise<Int<2500>>,Int<-3000>,Int<-5000>>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<80,0,0>>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<20,0,0>>,RotateColorsX<Variation,Red>>,
+  
+  AlphaL<RotateColorsX<Variation,Red>,Scale<IsLessThan<SwingSpeed<600>,Int<13600>>,Scale<SwingSpeed<600>,Int<-19300>,Int<32768>>,Int<0>>>,
   
   LockupTrL<Layers<
     AlphaL<AudioFlickerL<Azure>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
@@ -242,7 +259,7 @@ Preset presets[] = {
   InOutTrL<TrWipe<150>,TrWipeIn<500>>,
   
   AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(), 
-  "Kylo"}
+  "Kylo"}.
   
 //===Non-Canon===
   { "Nichirin", "tracks/kamado.wav",
@@ -297,8 +314,8 @@ Preset presets[] = {
   
   TransitionEffectL<TrConcat<TrFade<2000>,AlphaL<HumpFlickerL<RotateColorsX<Variation,DeepPink>,10>,Bump<Int<0>,Int<4000>>>,TrFade<2950>,AlphaL<HumpFlickerL<RotateColorsX<Variation,DeepPink>,15>,Bump<Int<0>,Int<5000>>>,TrFade<3000>,AlphaL<HumpFlickerL<RotateColorsX<Variation,DeepPink>,20>,Bump<Int<0>,Int<6000>>>,TrBoing<1000,3>>,EFFECT_PREON>,
   
-  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(),
-  "Newtype Deep Pink"},
+  AlphaL<Black,Scale<IsLessThan<BatteryLevel,Int<11000>>,Int<0>,Int<16384>>>>>(), 
+  "Newtype Deep Pink"}
   
 };
 BladeConfig blades[] = {
