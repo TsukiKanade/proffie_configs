@@ -2,9 +2,9 @@
 #include "proffieboard_v2_config.h"
 #define NUM_BLADES 1
 #define NUM_BUTTONS 2
-#define VOLUME 1300                        //750 volume with no clashes at 2.3, 1200 also sounds nice, [default: 1500]
-const unsigned int maxLedsPerStrip = 144;
-#define CLASH_THRESHOLD_G 2.2              //Originally 1.9 from Solo Sabers. 2.4 seems okay (2.4 clashes on Vader blasts, 2.5 has issues detecting clash) [default: 1.9 Solo Sabers]
+#define VOLUME 1500                        //750 volume with no clashes at 2.3, 1200 also sounds nice, [default: 1500]
+const unsigned int maxLedsPerStrip = 144;  //144 for traditional blades, 122 for KR Pixel Stick.
+#define CLASH_THRESHOLD_G 2.2              //New chassis made it much more stable [default: 1.9 Solo Sabers]
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
 #define ENABLE_WS2811
@@ -14,12 +14,13 @@ const unsigned int maxLedsPerStrip = 144;
 #define COLOR_CHANGE_DIRECT                //Enable "Click to Change" for Dual Phase and other styles designed for it.
 //#define DISABLE_COLOR_CHANGE             //Disables color change [spectrum], for memory saving
 #define DISABLE_DIAGNOSTIC_COMMANDS        //Reduces memory by disabling diagnostic commands
-//#define EXTRA_COLOR_BUFFER_SPACE 29        //A reasonable value might be something like 20%~25% of maxLedsPerStrip, essentially sends data faster down the strip.
+#define EXTRA_COLOR_BUFFER_SPACE 29        //A reasonable value might be something like 20%~25% of maxLedsPerStrip, essentially sends data faster down the strip.
 #define MOTION_TIMEOUT 60 * 15 * 1000      //This extends the motion timeout to 15 minutes to allow gesture ignition to remain active [Increase/decrease the "15" value as needed, default: 15]
+#define IDLE_OFF_TIME 60 * 20 * 1000       //Specifies an automatic OFF time (in "ms") [default: 10]
 #define SAVE_PRESET                        //Start at the last selected Preset when you turn the saber on
 
 #define FETT263_SWING_ON                   //To enable Swing On Ignition control (automatically enters Battle Mode, uses Fast On)
-#define FETT263_SWING_ON_SPEED 250         //Dictates speed for Swing On [default: 250, recommended: 250-500]
+#define FETT263_SWING_ON_SPEED 375         //Dictates speed for Swing On [default: 250, recommended: 250-500]
 #define FETT263_THRUST_ON                  //To enable Thrust On Ignition control (automatically enters Battle Mode, uses Fast On)
 #define FETT263_TWIST_OFF                  //To enable Twist Off Retraction control
 #define FETT263_MULTI_PHASE                //This will enable a preset change while ON to create a "Multi-Phase" saber effect
@@ -64,7 +65,7 @@ Preset presets[] = {
 
   { "FOBlue", "tracks/JFOepic.wav",
 	StylePtr<Layers<
-  Stripes<10000,-1700,RotateColorsX<Variation,Rgb<0,0,80>>,RotateColorsX<Variation,Blue>,RotateColorsX<Variation,Rgb<0,0,128>>,RotateColorsX<Variation,Rgb<0,0,50>>,RotateColorsX<Variation,Blue>>,
+  Stripes<16000,-1000,RotateColorsX<Variation,Blue>,RotateColorsX<Variation,Rgb<0,0,150>>,RotateColorsX<Variation,Blue>,RotateColorsX<Variation,Rgb<0,0,150>>,RotateColorsX<Variation,Blue>>,
   
   LockupTrL<Layers<
     AlphaL<AudioFlicker<Rgb<80,240,255>,DodgerBlue>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
@@ -92,7 +93,7 @@ Preset presets[] = {
    
   { "FOCyan", "tracks/JFOepic.wav",
     StylePtr<Layers<
-  Stripes<10000,-1700,RotateColorsX<Variation,Rgb<0,25,80>>,RotateColorsX<Variation,DeepSkyBlue>,RotateColorsX<Variation,Rgb<0,40,128>>,RotateColorsX<Variation,Rgb<0,16,50>>,RotateColorsX<Variation,DeepSkyBlue>>,
+  Stripes<16000,-1000,RotateColorsX<Variation,Cyan>,RotateColorsX<Variation,Rgb<0,150,150>>,RotateColorsX<Variation,Cyan>,RotateColorsX<Variation,Rgb<0,150,150>>,RotateColorsX<Variation,Cyan>>,
   
   LockupTrL<Layers<
     AlphaL<AudioFlickerL<Rgb<255,240,80>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
@@ -117,7 +118,7 @@ Preset presets[] = {
    
   { "FOGreen", "tracks/JFOepic.wav",
     StylePtr<Layers<
-  AudioFlicker<Gradient<Gradient<Rgb<125,255,125>,GreenYellow,GreenYellow>,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow,GreenYellow>,Green>,
+  Stripes<16000,-1000,RotateColorsX<Variation,GreenYellow>,RotateColorsX<Variation,Green>,RotateColorsX<Variation,Rgb<54,255,3>>,RotateColorsX<Variation,Green>,RotateColorsX<Variation,Rgb<54,255,3>>>,
   TransitionEffectL<TrConcat<TrInstant,BrownNoiseFlickerL<AlphaL<White,Int<16000>>,Int<50>>,TrSmoothFade<600>>,EFFECT_LOCKUP_END>,
   ResponsiveLockupL<Strobe<White,BrownNoiseFlicker<AudioFlicker<Rgb<125,255,125>,GreenYellow>,Strobe<Blue,LemonChiffon,50,1>,300>,50,1>,TrConcat<TrInstant,White,TrFade<200>>,TrFade<400>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>,Scale<SwingSpeed<100>,Int<10000>,Int<14000>>>,
   ResponsiveLightningBlockL<Strobe<White,AudioFlicker<White,Blue>,50,1>,TrConcat<TrInstant,AlphaL<White,Bump<Int<12000>,Int<18000>>>,TrFade<200>>,TrConcat<TrInstant,HumpFlickerL<AlphaL<White,Int<16000>>,30>,TrSmoothFade<600>>>,
@@ -132,7 +133,7 @@ Preset presets[] = {
   
   { "2ndSis", "tracks/JFO12.wav",
 	StylePtr<Layers<
-  Stripes<10000,-1700,RotateColorsX<Variation,Rgb<80,0,0>>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Rgb<128,0,0>>,RotateColorsX<Variation,Rgb<50,0,0>>,RotateColorsX<Variation,Red>>,
+  Stripes<10000,-1700,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Tomato>,RotateColorsX<Variation,Red>,RotateColorsX<Variation,Tomato>,RotateColorsX<Variation,Red>>,
   
   LockupTrL<Layers<
     AlphaL<AudioFlickerL<AudioFlicker<Rgb<255,75,75>,Tomato>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
@@ -289,7 +290,10 @@ Preset presets[] = {
   
   { "Newtype", "tracks/newtype.wav",
   StylePtr<Layers<
-  Stripes<6000,-3000,RotateColorsX<Variation,Rgb<128,0,22>>,RotateColorsX<Variation,DeepPink>,RotateColorsX<Variation,Rgb<60,0,11>>>,
+  Layers<
+    AudioFlicker<RotateColorsX<Variation,Rgb<90,0,16>>,RotateColorsX<Variation,Rgb<150,0,26>>>,
+    TransitionLoopL<TrWaveX<HumpFlickerL<RotateColorsX<Variation,DeepPink>,40>,Int<250>,Int<100>,Int<200>,Int<0>>>,
+    TransitionLoopL<TrWaveX<HumpFlickerL<RotateColorsX<Variation,Rgb<210,0,49>>,40>,Int<350>,Int<100>,Int<300>,Int<0>>>>,
   
   LockupTrL<Layers<
     AlphaL<AudioFlickerL<AudioFlicker<Pink,HotPink>>,Bump<Scale<BladeAngle<>,Scale<BladeAngle<0,16000>,Int<4000>,Int<26000>>,Int<6000>>,Scale<SwingSpeed<100>,Int<14000>,Int<18000>>>>,
@@ -317,6 +321,7 @@ Preset presets[] = {
   
 };
 BladeConfig blades[] = {
+ //128 for traditional 32" blades, 122 for KR Pixel Stick.
  { 0, WS281XBladePtr<128, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3>, DefaultPinClass, 1000000>(), CONFIGARRAY(presets) },
 };
 #endif
